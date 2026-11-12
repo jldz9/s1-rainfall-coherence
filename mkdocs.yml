@@ -1,0 +1,74 @@
+site_name: s1-rainfall-coherence
+repo_url: https://github.com/jldz9/s1-rainfall-coherence
+repo_name: jldz9/s1-rainfall-coherence
+site_url: https://jldz9.github.io/s1-rainfall-coherence/
+site_description: >-
+  Rainfall and Sentinel-1 interferometric coherence, measured over 21,010
+  matched events. Code and data to reproduce every table and figure.
+
+theme:
+  name: material
+  font:
+    text: "sans-serif"
+    code: "Source Code Pro"
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/weather-night
+        name: switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: grey
+      toggle:
+        icon: material/weather-sunny
+        name: switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Installation:
+      - Installing the package: installation/install.md
+      - Getting the data: installation/data.md
+  - Reproduce:
+      - Overview: reproduce/index.md
+      - With the provided data: reproduce/deposit.md
+      - From scratch: reproduce/scratch.md
+      - "  01 Acquire": reproduce/acquire.md
+      - "  02 Process": reproduce/process.md
+      - "  03 Extract": reproduce/extract.md
+      - "  04 Tables": reproduce/tables.md
+      - Pitfalls: reproduce/pitfalls.md
+  - Reference:
+      - Data dictionary: reference/data.md
+      - API: reference/api.md
+  - About: about.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+  - tables
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js

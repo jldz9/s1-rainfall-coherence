@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: s1-rainfall-coherence
+message: Please cite the paper and the data deposit.
+type: software
+authors:
+  - family-names: Li
+    given-names: Jiawei
+    email: jiawei.li@colostate.edu
+    affiliation: Colorado State University
+repository-code: https://github.com/jldz9/s1-rainfall-coherence
+license: MIT
+version: 1.0.0
