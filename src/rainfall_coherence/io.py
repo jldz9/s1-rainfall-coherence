@@ -165,7 +165,7 @@ def population_weights(root=None, edges=None) -> pd.Series:
     sample that was processed.  The weights sum to the census total.
 
     Do NOT apply them to a quantity already conditioned on the accumulation --
-    a band of Table 2, the fit of Eq. (3), a cover or climate contrast, or
+    a band of Table 3, the fit of Eq. (3), a cover or climate contrast, or
     either validation arm.  Those are measured at their own dose and weighting
     only adds noise.
     """

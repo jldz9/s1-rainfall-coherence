@@ -33,7 +33,7 @@ Engine account, no cluster.
     the Results: a logarithm explains 10.32% of the variance against 7.64% for
     a straight line and 9.91% for a square root.
 
-=== "Table 2"
+=== "Table 3"
 
     ```bash
     rcoh dose
@@ -42,7 +42,7 @@ Engine account, no cluster.
     Reduction by accumulation band, medians with cluster bootstrap intervals
     over bursts.
 
-=== "Table 3"
+=== "Table 4"
 
     ```bash
     rcoh landcover
@@ -61,7 +61,7 @@ Engine account, no cluster.
      snowice   1753       -12.5 1.00
     ```
 
-=== "Table 4"
+=== "Table 5"
 
     ```bash
     rcoh climate
@@ -86,9 +86,9 @@ Engine account, no cluster.
 ```python
 from rainfall_coherence import io, tables, stats
 
-tables.dose()                   # Table 2
-tables.landcover_contrasts()    # Table 3
-tables.climate_and_season()     # Table 4
+tables.dose()                   # Table 3
+tables.landcover_contrasts()    # Table 4
+tables.climate_and_season()     # Table 5
 tables.dose_relationship()      # Equation 3
 tables.measurement_floor()      # the floor, by cover and climate
 ```
@@ -170,8 +170,8 @@ done
 pytest
 ```
 
-Eleven tests and twenty-six assertions, each tied to a published number: the sample size, the
-headline, Equation 3 and its form comparison, three rows of Table 3, the
+Eleven tests and twenty-nine assertions, each tied to a published number: the sample size, the
+headline, Equation 3 and its form comparison, five rows of Table 4, the
 floor, the within-burst difference, the masking sensitivity, and that the
 soil-water change is oriented. A pass means this copy of the code reproduces
 the published analysis exactly. The suite runs against the bundled `data/`;

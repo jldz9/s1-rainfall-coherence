@@ -32,13 +32,18 @@ def test_equation_3():
     assert f["slope_above_15mm"] == 6.46
 
 
-def test_table3_landcover():
+def test_table4_landcover():
     t = tables.landcover_contrasts().set_index("cover")
     assert t.loc["tree", "units"] == 20291
+    assert t.loc["tree", "bursts"] == 2128
     assert t.loc["tree", "extra_loss"] == 3.4
     assert t.loc["built", "extra_loss"] == -5.4
     # the sign that a stray headroom filter reverses
     assert t.loc["wetland", "extra_loss"] < 0
+    # the interval must resample bursts.  sd/sqrt(n) over units gives 0.11
+    # here, and every interval in the table would be half again too tight.
+    assert t.loc["tree", "se"] == 0.19
+    assert t.loc["snowice", "se"] == 1.25
 
 
 def test_measurement_floor():

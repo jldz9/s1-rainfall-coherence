@@ -10,7 +10,7 @@ from .stats import cluster_bootstrap, log_fit
 
 
 def dose(root=None) -> pd.DataFrame:
-    """Table 2.  Coherence reduction by accumulation band.
+    """Table 3.  Coherence reduction by accumulation band.
 
     Reductions are medians; standard errors resample bursts.
     """
@@ -29,10 +29,15 @@ def dose(root=None) -> pd.DataFrame:
 
 
 def landcover_contrasts(root=None, reference: str = "grass") -> pd.DataFrame:
-    """Table 3.  Extra loss of each cover against grassland, within a unit.
+    """Table 4.  Extra loss of each cover against grassland, within a unit.
 
     Collapse to one pixel-weighted value per unit and cover, then pair against
     the reference inside the same unit.
+
+    The interval resamples bursts, as everywhere else in the paper.  Pairing
+    removes the burst from the contrast but not the clustering: units of one
+    burst still share its terrain, and sd/sqrt(n) over units runs 1.2 to 1.8
+    times too narrow depending on the cover.
 
     No further filter is applied, and none should be.  The headroom condition
     belongs to the unit and was imposed when the analysed sample was built;
@@ -59,16 +64,20 @@ def landcover_contrasts(root=None, reference: str = "grass") -> pd.DataFrame:
         if len(shared) < 20:
             continue
         diff = s.loc[shared] - ref.loc[shared]
+        b = burst.reindex(diff.index)
+        mean, lo, hi, draws = cluster_bootstrap(
+            diff, b, stat=np.mean, n=4000, return_draws=True)
         rows.append(
-            dict(cover=cover, units=len(shared),
-                 extra_loss=round(diff.mean(), 1),
-                 se=round(diff.std() / np.sqrt(len(diff)), 2))
+            dict(cover=cover, units=len(shared), bursts=int(b.nunique()),
+                 extra_loss=round(mean, 1),
+                 se=round(float(draws.std(ddof=1)), 2),
+                 lo=round(lo, 2), hi=round(hi, 2))
         )
     return pd.DataFrame(rows).sort_values("extra_loss", ascending=False)
 
 
 def climate_and_season(root=None) -> tuple[pd.DataFrame, pd.DataFrame]:
-    """Table 4.  Reduction by Koppen class and by hemisphere-corrected season."""
+    """Table 5.  Reduction by Koppen class and by hemisphere-corrected season."""
     u = io.units(root)
     k = (u.groupby("koppen")
            .agg(units=("unit_id", "size"),

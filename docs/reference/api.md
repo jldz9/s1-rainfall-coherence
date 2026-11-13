@@ -18,7 +18,7 @@ Constants fixed for the whole study, defined once.
 | `EVENT_FLOOR_MM` | 1.0 | alias: the smallest accumulation counted as an event |
 | `DRY_ACQ_MM` | 1.0 | alias: dry enough to enter a control pair |
 | `FULL_PROCESSING_MM` | 15.0 | above this every event was processed, below it sampled |
-| `DOSE_EDGES` | | the accumulation bands of Table 2 |
+| `DOSE_EDGES` | | the accumulation bands of Table 3 |
 | `LOOKS_DISPLACEMENT` | 4 | multilooking for the phase conversion |
 | `WAVELENGTH_MM` | 55.5 | Sentinel-1 C-band |
 
@@ -66,9 +66,9 @@ stats.cluster_bootstrap(u.reduction_pct, u.burst)
 
 | function | produces |
 | --- | --- |
-| `dose()` | Table 2 |
-| `landcover_contrasts(reference="grass")` | Table 3 |
-| `climate_and_season()` | Table 4, as two frames |
+| `dose()` | Table 3 |
+| `landcover_contrasts(reference="grass")` | Table 4 |
+| `climate_and_season()` | Table 5, as two frames |
 | `dose_relationship()` | Equation 3 and the form comparison |
 | `measurement_floor()` | the floor, by cover and by climate |
 | `population_estimate()` | the headline weighted to the event census |

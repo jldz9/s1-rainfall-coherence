@@ -31,8 +31,13 @@ def cluster_bootstrap(
     n: int = 2000,
     seed: int = 0,
     interval: tuple[float, float] = (2.5, 97.5),
-) -> tuple[float, float, float]:
+    return_draws: bool = False,
+):
     """Resample whole bursts, recompute `stat`, return (point, low, high).
+
+    With `return_draws` the bootstrap distribution is appended as a fourth
+    element, so a caller wanting a standard error can take its spread rather
+    than assume the units independent.
 
     Resampling units instead would understate the spread by roughly 1.7.
     """
@@ -41,7 +46,8 @@ def cluster_bootstrap(
     ok = np.isfinite(v)
     v, g = v[ok], g[ok]
     if v.size == 0:
-        return np.nan, np.nan, np.nan
+        empty = (np.nan, np.nan, np.nan)
+        return (*empty, np.array([])) if return_draws else empty
 
     by_group: dict = {}
     for key, idx in pd.Series(np.arange(v.size)).groupby(g):
@@ -54,7 +60,10 @@ def cluster_bootstrap(
         pick = rng.integers(0, len(keys), len(keys))
         draws[i] = stat(v[np.concatenate([by_group[keys[k]] for k in pick])])
     lo, hi = np.percentile(draws, interval)
-    return float(stat(v)), float(lo), float(hi)
+    point = float(stat(v))
+    if return_draws:
+        return point, float(lo), float(hi), draws
+    return point, float(lo), float(hi)
 
 
 def paired_difference(a, b, groups, **kw):

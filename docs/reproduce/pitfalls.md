@@ -85,11 +85,13 @@ stats.cluster_bootstrap(u.reduction_pct, u.burst)   # groups = burst
 
 Every interval in the paper is computed this way.
 
-!!! note "One exception in the paper"
+!!! note "Pairing does not remove the clustering"
 
-    Table 3's standard errors are plain $sd/\sqrt{n}$ rather than clustered.
-    If the 1.7 factor applies there too, those intervals are narrower than
-    they should be; only the mangrove row's conclusion would be at risk.
+    Table 4 pairs each cover against grassland inside the same burst, which
+    removes the burst from the contrast but not from the sampling: its units
+    still share one terrain. Taken as $sd/\sqrt{n}$ over units its standard
+    errors ran 1.2 to 1.8 times too narrow, worst for tree cover. They
+    resample bursts like every other interval in the paper.
 
 ---
 
@@ -120,7 +122,7 @@ tables.population_estimate()["weighted_mean_pct"]    # 11.76%
 
 !!! note "Do not weight a conditional quantity"
 
-    Table 2's bands, Eq. (3), the cover and climate contrasts and both
+    Table 3's bands, Eq. (3), the cover and climate contrasts and both
     validation arms are already conditioned on dose or paired within units.
     Weighting them adds noise without removing bias, and would change Eq. (3)
     from `0.82 + 5.27 log₂R` to `1.46 + 4.98 log₂R` for no gain.

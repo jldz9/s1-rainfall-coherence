@@ -6,7 +6,7 @@ falls or because the control rises.  Plotting the two separately settles which:
 the control is nearly flat across the whole range of accumulation while the
 event pair descends, so the trend resides in the numerator.
 
-Bands, statistic and interval follow Table 2 -- medians, with a cluster
+Bands, statistic and interval follow Table 3 -- medians, with a cluster
 bootstrap over bursts -- so that this figure and that table are the same
 arithmetic applied to the two coherences rather than to their ratio.
 
@@ -29,7 +29,7 @@ plt.rcParams.update({"font.size": 8, "font.family": "DejaVu Sans",
                      "savefig.bbox": "tight", "legend.frameon": False})
 RAIN, CTRL = "#9E2A2B", "#335C81"
 FLOOR = 0.077
-EDGES = [1, 3, 6, 10, 15, 20, 25, 30, 40, 50, 70, 100, 320]   # Table 2
+EDGES = [1, 3, 6, 10, 15, 20, 25, 30, 40, 50, 70, 100, 320]   # Table 3
 rng = np.random.default_rng(0)
 
 

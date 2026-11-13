@@ -77,7 +77,7 @@ WET_MM = WET_DAY_MM
 HEAVY_MM = FULL_PROCESSING_MM
 
 DOSE_EDGES = [1, 3, 6, 10, 15, 20, 25, 30, 40, 50, 70, 100, 320]
-"""Accumulation bands of Table 2, in millimetres.
+"""Accumulation bands of Table 3, in millimetres.
 
 Used by the dose table and by the figures, so that a figure and the table
 beside it are the same arithmetic.

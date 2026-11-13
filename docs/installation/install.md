@@ -81,9 +81,9 @@ pip install pytest
 pytest
 ```
 
-Eleven tests and twenty-six assertions, each tied to a published number: the sample size, the
-headline reduction, Equation 3 and its comparison of functional forms, three
-rows of Table 3, the measurement floor, the within-burst difference, the
+Eleven tests and twenty-nine assertions, each tied to a published number: the sample size, the
+headline reduction, Equation 3 and its comparison of functional forms, five
+rows of Table 4, the measurement floor, the within-burst difference, the
 masking sensitivity, and that the soil water change is oriented to the event.
 A pass means this install reproduces the published analysis exactly.
 

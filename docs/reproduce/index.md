@@ -11,9 +11,9 @@ or rebuild the measurement.
     ```bash
     pip install -e .
     rcoh fit                 # Equation 3
-    rcoh dose                # Table 2
-    rcoh landcover           # Table 3
-    rcoh climate             # Table 4
+    rcoh dose                # Table 3
+    rcoh landcover           # Table 4
+    rcoh climate             # Table 5
     rcoh floor               # the measurement floor
     ```
 

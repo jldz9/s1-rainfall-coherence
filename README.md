@@ -38,9 +38,9 @@ export RCOH_DATA=/path/to/deposit
 ## Use
 
 ```bash
-rcoh dose        # Table 2, reduction by accumulation band
-rcoh landcover   # Table 3, extra loss by cover against grassland
-rcoh climate     # Table 4, by Köppen class and by season
+rcoh dose        # Table 3, reduction by accumulation band
+rcoh landcover   # Table 4, extra loss by cover against grassland
+rcoh climate     # Table 5, by Köppen class and by season
 rcoh population  # the headline, weighted to the event census
 rcoh fit         # Equation 3, with the comparison of functional forms
 rcoh floor       # the dry-against-dry measurement floor
@@ -65,7 +65,7 @@ data/                       the ten deposited tables, 27 MB; nothing to download
 
 src/rainfall_coherence/     analysis of the deposited tables; no raw data needed
     config.py     constants fixed for the study: the floor, the headroom
-                  condition, the wet-day threshold, the bands of Table 2
+                  condition, the wet-day threshold, the bands of Table 3
     io.py         loaders for the deposited tables, with derived columns
     stats.py      cluster bootstrap, paired differences, the dose fit
     tables.py     Tables 2, 3 and 4, and Equation 3
@@ -93,7 +93,7 @@ processed while lighter events were sampled, so the units over-represent heavy
 rain roughly fivefold. `io.units().reduction_pct.mean()` gives 19.21%, which
 describes the sample; `tables.population_estimate()` gives **11.76%**, which
 describes the rainfall. Do not weight a quantity already conditioned on dose —
-Table 2's bands, Eq. (3), the cover and climate contrasts, both validation
+Table 3's bands, Eq. (3), the cover and climate contrasts, both validation
 arms.
 
 
@@ -136,9 +136,9 @@ will report smaller reductions.
 ## Not yet included
 
 Two scripts from the published analysis are being reconstructed: the generator
-for Figure 2, and the builder of Table 3 as originally run.
-`tables.landcover_contrasts()` reproduces Table 3 exactly from the deposited
-data, and `fig_r12_dose` was rewritten against the bands of Table 2.
+for Figure 2, and the builder of Table 4 as originally run.
+`tables.landcover_contrasts()` reproduces Table 4 exactly from the deposited
+data, and `fig_r12_dose` was rewritten against the bands of Table 3.
 
 The interferograms themselves are formed by InSARHub with an ISCE3/dolphin
 backend, which is a separate package; `02_process/` drives it rather than
