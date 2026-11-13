@@ -1265,10 +1265,12 @@ factor of <strong>1.7</strong>.</p>
 </code></pre></div>
 <p>Every interval in the paper is computed this way.</p>
 <div class="admonition note">
-<p class="admonition-title">One exception in the paper</p>
-<p>Table 3's standard errors are plain <span class="arithmatex">\(sd/\sqrt{n}\)</span> rather than clustered.
-If the 1.7 factor applies there too, those intervals are narrower than
-they should be; only the mangrove row's conclusion would be at risk.</p>
+<p class="admonition-title">Pairing does not remove the clustering</p>
+<p>Table 4 pairs each cover against grassland inside the same burst, which
+removes the burst from the contrast but not from the sampling: its units
+still share one terrain. Taken as <span class="arithmatex">\(sd/\sqrt{n}\)</span> over units its standard
+errors ran 1.2 to 1.8 times too narrow, worst for tree cover. They
+resample bursts like every other interval in the paper.</p>
 </div>
 <hr />
 <h2 id="4-weight-before-averaging-across-accumulations">4. Weight before averaging across accumulations<a class="headerlink" href="#4-weight-before-averaging-across-accumulations" title="Permanent link">&para;</a></h2>
@@ -1317,7 +1319,7 @@ sample rather than the rainfall.</p>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Do not weight a conditional quantity</p>
-<p>Table 2's bands, Eq. (3), the cover and climate contrasts and both
+<p>Table 3's bands, Eq. (3), the cover and climate contrasts and both
 validation arms are already conditioned on dose or paired within units.
 Weighting them adds noise without removing bias, and would change Eq. (3)
 from <code>0.82 + 5.27 log₂R</code> to <code>1.46 + 4.98 log₂R</code> for no gain.</p>

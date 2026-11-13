@@ -1131,7 +1131,7 @@ Engine account, no cluster.</p>
 </code></pre></div>
 <hr />
 <h2 id="from-the-command-line">From the command line<a class="headerlink" href="#from-the-command-line" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Equation 3</label><label for="__tabbed_1_2">Table 2</label><label for="__tabbed_1_3">Table 3</label><label for="__tabbed_1_4">Table 4</label><label for="__tabbed_1_5">The floor</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Equation 3</label><label for="__tabbed_1_2">Table 3</label><label for="__tabbed_1_3">Table 4</label><label for="__tabbed_1_4">Table 5</label><label for="__tabbed_1_5">The floor</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>rcoh<span class="w"> </span>fit
@@ -1189,9 +1189,9 @@ spans only 10.1 to 13.8, and does not follow humidity.</p>
 <h2 id="from-python">From Python<a class="headerlink" href="#from-python" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">rainfall_coherence</span><span class="w"> </span><span class="kn">import</span> <span class="n">io</span><span class="p">,</span> <span class="n">tables</span><span class="p">,</span> <span class="n">stats</span>
 
-<span class="n">tables</span><span class="o">.</span><span class="n">dose</span><span class="p">()</span>                   <span class="c1"># Table 2</span>
-<span class="n">tables</span><span class="o">.</span><span class="n">landcover_contrasts</span><span class="p">()</span>    <span class="c1"># Table 3</span>
-<span class="n">tables</span><span class="o">.</span><span class="n">climate_and_season</span><span class="p">()</span>     <span class="c1"># Table 4</span>
+<span class="n">tables</span><span class="o">.</span><span class="n">dose</span><span class="p">()</span>                   <span class="c1"># Table 3</span>
+<span class="n">tables</span><span class="o">.</span><span class="n">landcover_contrasts</span><span class="p">()</span>    <span class="c1"># Table 4</span>
+<span class="n">tables</span><span class="o">.</span><span class="n">climate_and_season</span><span class="p">()</span>     <span class="c1"># Table 5</span>
 <span class="n">tables</span><span class="o">.</span><span class="n">dose_relationship</span><span class="p">()</span>      <span class="c1"># Equation 3</span>
 <span class="n">tables</span><span class="o">.</span><span class="n">measurement_floor</span><span class="p">()</span>      <span class="c1"># the floor, by cover and climate</span>
 </code></pre></div>
@@ -1282,8 +1282,8 @@ among the scripts being reconstructed; see the repository README.</p>
 <h2 id="verifying-everything-at-once">Verifying everything at once<a class="headerlink" href="#verifying-everything-at-once" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>pytest
 </code></pre></div>
-<p>Eleven tests and twenty-six assertions, each tied to a published number: the sample size, the
-headline, Equation 3 and its form comparison, three rows of Table 3, the
+<p>Eleven tests and twenty-nine assertions, each tied to a published number: the sample size, the
+headline, Equation 3 and its form comparison, five rows of Table 4, the
 floor, the within-burst difference, the masking sensitivity, and that the
 soil-water change is oriented. A pass means this copy of the code reproduces
 the published analysis exactly. The suite runs against the bundled <code>data/</code>;
